@@ -6,6 +6,6 @@ namespace Sparsh.Models.Database
         public string ProductName { get; set; }
         public double PricePerProduct { get; set; }
         public string ProductImageUrl { get; set; }
-        public string ProductDescription { get; set; }       
+        public string ProductDescription { get; set; }  
     }
 }
