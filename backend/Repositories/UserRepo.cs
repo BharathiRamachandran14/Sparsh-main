@@ -1,7 +1,7 @@
 using System.Linq;
-using WhaleSpotting.Models.Database;
+using Sparsh.Models.Database;
 
-namespace WhaleSpotting.Repositories
+namespace Sparsh.Repositories
 {
     public interface IUserRepo
     {
@@ -11,9 +11,9 @@ namespace WhaleSpotting.Repositories
 
     public class UserRepo : IUserRepo
     {
-        private readonly WhaleSpottingDbContext _context;
+        private readonly SparshDbContext _context;
 
-        public UserRepo(WhaleSpottingDbContext context)
+        public UserRepo(SparshDbContext context)
         {
             _context = context;
         }

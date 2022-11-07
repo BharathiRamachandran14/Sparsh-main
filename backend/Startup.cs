@@ -6,13 +6,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using WhaleSpotting.Repositories;
-using WhaleSpotting.Services;
+using Sparsh.Repositories;
+using Sparsh.Services;
 using System.Reflection;
 using System.IO;
 using System.Text.Json.Serialization;
 
-namespace WhaleSpotting
+namespace Sparsh
 {
   public class Startup
   {
@@ -44,7 +44,7 @@ namespace WhaleSpotting
       {
         c.SwaggerDoc("v1", new OpenApiInfo
         {
-          Title = "WhaleSpotting",
+          Title = "Sparsh",
           Version = "v1"
         });
 
@@ -54,18 +54,12 @@ namespace WhaleSpotting
         c.IncludeXmlComments(xmlPath);
       });
 
-      services.AddDbContext<WhaleSpottingDbContext>();
+      services.AddDbContext<SparshDbContext>();
 
-      services.AddTransient<ILocationRepo, LocationRepo>();
-      services.AddTransient<ISightingRepo, SightingRepo>();
       services.AddTransient<IUserRepo, UserRepo>();
-      services.AddTransient<IWhaleRepo, WhaleRepo>();
-
+   
       services.AddTransient<IAuthService, AuthService>();
-      services.AddTransient<ILocationService, LocationService>(); 
-      services.AddTransient<ISightingService, SightingService>();
       services.AddTransient<IUserService, UserService>();
-      services.AddTransient<IWhaleService, WhaleService>();
     }
 
     // This method gets called by the runtime. Use this method to configure the
@@ -77,7 +71,7 @@ namespace WhaleSpotting
         app.UseDeveloperExceptionPage();
         app.UseSwagger();
         app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json",
-                                                "WhaleSpotting v1"));
+                                                "Sparsh v1"));
       }
 
       AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
@@ -101,7 +95,7 @@ namespace WhaleSpotting
         .GetRequiredService<IServiceScopeFactory>()
         .CreateScope())
       {
-        using (var context = serviceScope.ServiceProvider.GetService<WhaleSpottingDbContext>())
+        using (var context = serviceScope.ServiceProvider.GetService<SparshDbContext>())
         {
           context.Database.Migrate();
         }

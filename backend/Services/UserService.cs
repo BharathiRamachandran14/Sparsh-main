@@ -2,12 +2,12 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
-using WhaleSpotting.Models.Database;
-using WhaleSpotting.Models.Request;
-using WhaleSpotting.Repositories;
-using WhaleSpotting.Exceptions;
+using Sparsh.Models.Database;
+using Sparsh.Models.Request;
+using Sparsh.Repositories;
+using Sparsh.Exceptions;
 
-namespace WhaleSpotting.Services
+namespace Sparsh.Services
 {
     public interface IUserService
     {

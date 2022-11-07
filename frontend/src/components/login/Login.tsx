@@ -17,7 +17,7 @@ export const Login: React.FunctionComponent = () => {
   }
 
   if (loginContext.isLoggedIn) {
-    return <Redirect to="/sightings/pending" />;
+    return <></>;
   }
 
   return (

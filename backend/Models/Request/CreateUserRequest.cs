@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace WhaleSpotting.Models.Request
+namespace Sparsh.Models.Request
 {
     public class CreateUserRequest
     {

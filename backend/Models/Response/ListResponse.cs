@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace WhaleSpotting.Models.Response
+namespace Sparsh.Models.Response
 {
     public class ListResponse<T>
     {

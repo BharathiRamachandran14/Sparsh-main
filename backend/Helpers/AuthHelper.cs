@@ -1,9 +1,9 @@
 using System;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Microsoft.AspNetCore.Mvc;
-using WhaleSpotting.Services;
+using Sparsh.Services;
 
-namespace WhaleSpotting.Helpers
+namespace Sparsh.Helpers
 {
     public static class AuthHelper
     {

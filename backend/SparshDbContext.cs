@@ -1,16 +1,12 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
-using WhaleSpotting.Models.Database;
+using Sparsh.Models.Database;
 
-namespace WhaleSpotting
+namespace Sparsh
 {
-    public class WhaleSpottingDbContext : DbContext
+    public class SparshDbContext : DbContext
     {
-        public DbSet<ConservationStatus> ConservationStatuses { get; set; }
-        public DbSet<Location> Locations { get; set; }
-        public DbSet<Sighting> Sightings { get; set; }
-        public DbSet<Species> Species { get; set; }
         public DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(

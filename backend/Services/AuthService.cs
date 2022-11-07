@@ -1,9 +1,9 @@
 using System;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Microsoft.AspNetCore.Mvc;
-using WhaleSpotting.Repositories;
+using Sparsh.Repositories;
 
-namespace WhaleSpotting.Services
+namespace Sparsh.Services
 {
     public interface IAuthService
     {
