@@ -4,7 +4,7 @@ namespace Sparsh.Models.Database
     {  
         public int StockId { get; set; }
         public Product Item { get; set; }
-        public uint Amount {get; set; }
+        public uint StockQuantity {get; set; }
         public double TotalPrice { get; set; }
     }
 }
