@@ -1,13 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
-using WhaleSpotting.Services;
-using WhaleSpotting.Helpers;
-using WhaleSpotting.Models.Request;
-using WhaleSpotting.Models.Database;
-using WhaleSpotting.Models.Response;
-using WhaleSpotting.Exceptions;
+using Sparsh.Services;
+using Sparsh.Helpers;
+using Sparsh.Models.Request;
+using Sparsh.Models.Database;
+using Sparsh.Models.Response;
+using Sparsh.Exceptions;
 
-namespace WhaleSpotting.Controllers
+namespace Sparsh.Controllers
 {
     [ApiController]
     [Route("/users")]

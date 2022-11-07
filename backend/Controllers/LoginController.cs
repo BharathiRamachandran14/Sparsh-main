@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
-using WhaleSpotting.Services;
-using WhaleSpotting.Helpers;
+using Sparsh.Services;
+using Sparsh.Helpers;
 
-namespace WhaleSpotting.Controllers {
+namespace Sparsh.Controllers {
     [ApiController]
     [Route("/login")]
     public class LoginController : ControllerBase {

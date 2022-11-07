@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using WhaleSpotting.Models.Request;
-using WhaleSpotting.Services;
+using Sparsh.Models.Request;
+using Sparsh.Services;
 
-namespace WhaleSpotting.Controllers {
+namespace Sparsh.Controllers {
   [ApiController]
   [Route("/debug")]
   public class DebugController : ControllerBase {

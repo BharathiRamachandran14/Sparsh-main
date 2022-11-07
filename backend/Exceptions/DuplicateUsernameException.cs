@@ -1,6 +1,6 @@
 using System;
 
-namespace WhaleSpotting.Exceptions
+namespace Sparsh.Exceptions
 {
     [Serializable]
     public class DuplicateUsernameException : Exception

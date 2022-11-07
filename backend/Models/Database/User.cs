@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace WhaleSpotting.Models.Database
+namespace Sparsh.Models.Database
 {
     public class User
     {
-        public int Id { get; set; }
+        public int UserId { get; set; }
 
         public string Name { get; set; }
 

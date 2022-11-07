@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
-using WhaleSpotting.Models.Request;
+using Sparsh.Models.Request;
 
-namespace WhaleSpotting.Models.Response
+namespace Sparsh.Models.Response
 {
     public class UserResponse
     {
