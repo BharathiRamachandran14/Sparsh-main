@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Sparsh;
@@ -11,9 +12,10 @@ using Sparsh;
 namespace Sparsh.Migrations
 {
     [DbContext(typeof(SparshDbContext))]
-    partial class SparshDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221108110700_updatedDB")]
+    partial class updatedDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -98,9 +100,6 @@ namespace Sparsh.Migrations
 
                     b.Property<string>("ProductName")
                         .HasColumnType("text");
-
-                    b.Property<int>("ProductType")
-                        .HasColumnType("integer");
 
                     b.HasKey("ProductId");
 

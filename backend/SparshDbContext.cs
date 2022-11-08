@@ -14,6 +14,7 @@ namespace Sparsh
         public DbSet<Storehouse> Storehouse { get; set; }
         public DbSet<Transaction> Transaction { get; set; }
         public DbSet<WishList> Wishlist { get; set; }
+        public DbSet<Admin> Admin { get; set; }
 
         protected override void OnConfiguring(
             DbContextOptionsBuilder optionsBuilder

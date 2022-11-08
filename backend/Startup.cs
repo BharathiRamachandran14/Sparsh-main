@@ -57,9 +57,11 @@ namespace Sparsh
       services.AddDbContext<SparshDbContext>();
 
       services.AddTransient<IUserRepo, UserRepo>();
+      services.AddTransient<IProductRepo, ProductRepo>();
    
       services.AddTransient<IAuthService, AuthService>();
       services.AddTransient<IUserService, UserService>();
+      services.AddTransient<IProductService, ProductService>();
     }
 
     // This method gets called by the runtime. Use this method to configure the
