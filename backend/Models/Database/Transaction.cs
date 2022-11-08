@@ -8,7 +8,7 @@ namespace Sparsh.Models.Database
         public int TransactionId { get; set; }
         public DateTime TimeStamp { get; set; }
         public User Purchaser { get; set; }
-        public List<Stock> DescriptionOfGoods { get; set; }
+        public List<Cart> DescriptionOfGoods { get; set; }
         public double TotalValue { get; set; }
         public ShippingStatus TransactionStatus { get; set; }
     }
