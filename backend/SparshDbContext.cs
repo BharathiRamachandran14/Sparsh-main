@@ -8,6 +8,13 @@ namespace Sparsh
     public class SparshDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
+        public DbSet<Cart> Cart { get; set; }
+        public DbSet<Product> Product { get; set; }
+        public DbSet<Stock> Stock { get; set; }
+        public DbSet<Storehouse> Storehouse { get; set; }
+        public DbSet<Transaction> Transaction { get; set; }
+        public DbSet<WishList> Wishlist { get; set; }
+        public DbSet<Admin> Admin { get; set; }
 
         protected override void OnConfiguring(
             DbContextOptionsBuilder optionsBuilder
