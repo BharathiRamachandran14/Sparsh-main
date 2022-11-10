@@ -15,8 +15,12 @@
   margin: auto;
   background-color: $primary-light;
   padding: 10px;
-  border: 2px solid $primary-dark;
+  border: 2px solid $primary-light;
   border-radius: 15px;
+
+  & :hover {
+    background-color: $secondary-light;
+  }
 
   .login-form__field {
     min-height: 55px;

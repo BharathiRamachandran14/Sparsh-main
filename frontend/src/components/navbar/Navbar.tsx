@@ -15,7 +15,7 @@ export const Navbar: React.FunctionComponent = () => {
         <Hamburger toggled={isExpanded} toggle={setIsExpanded} />
       </div>
       <Link to="/">
-        <img className="navbar__logo" src="/logo.png" alt="Sparsh logo" />
+        <img className="navbar__logo" src="/logo.jpg" alt="Sparsh logo" />
       </Link>
       <ul className={`menu-items ${isExpanded ? "expanded" : ""}`}>
         <Link to="/" onClick={() => setIsExpanded(false)}>
