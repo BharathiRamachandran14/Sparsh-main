@@ -9,6 +9,8 @@ namespace Sparsh.Repositories
     {
         IEnumerable<Product> GetAllProducts();
         IEnumerable<Product> GetProductsByType(ProductType type);
+        Product AddNewProduct(Product newProduct);
+        // Product GetProductById(int productId);
     }
     public class ProductRepo : IProductRepo
     {
@@ -32,6 +34,20 @@ namespace Sparsh.Repositories
         {
             return _context.Product
                 .Where(p => p.ProductType == type);
+        }
+
+        // public Product GetProductById(int productId)
+        // {
+        //     return _context.Product
+        //         .Where(p => p.ProductId == productId);
+        // }
+
+        public Product AddNewProduct(Product newProduct)
+        {
+            var insertedProduct = _context.Product.Add(newProduct);
+            _context.SaveChanges();
+
+            return insertedProduct.Entity;
         }
     }
 }
