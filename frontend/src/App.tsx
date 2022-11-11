@@ -5,6 +5,16 @@ import { Navbar } from "./components/navbar/Navbar";
 import { LoginManager } from "./components/login/LoginManager";
 import { Footer } from "./components/footer/Footer";
 import { Login } from "./components/login/Login";
+import { Wishlist } from "./components/wishlist/Wishlist";
+import { About } from "./components/about/About";
+import { FacialCare } from "./components/facialCare/FacialCare";
+import { HairCare } from "./components/hairCare/HairCare";
+import { BodyCare } from "./components/bodyCare/BodyCare";
+import { Combo } from "./components/combo/Combo";
+import { Cart } from "./components/cart/Cart";
+import { Orders } from "./components/orders/Orders";
+import { OrderTracking } from "./components/orderTracking/OrderTracking";
+import { PendingOrders } from "./components/pendingOrders/PendingOrders";
 
 const Routes: React.FunctionComponent = () => {
   return (
@@ -12,8 +22,41 @@ const Routes: React.FunctionComponent = () => {
       <Route exact path="/">
         <Home />
       </Route>
+      <Route exact path="/about">
+        <About />
+      </Route>
+      <Route exact path="/products/face">
+        <FacialCare />
+      </Route>
+      <Route exact path="/products/hair">
+        <HairCare />
+      </Route>
+      <Route exact path="/products/body">
+        <BodyCare />
+      </Route>
+      <Route exact path="/products/combos">
+        <Combo />
+      </Route>
       <Route exact path="/login">
         <Login />
+      </Route>
+      <Route exact path="/wishList">
+        <Wishlist />
+      </Route>
+      <Route exact path="user/cart">
+        <Cart />
+      </Route>
+      <Route exact path="user/orders">
+        <Orders />
+      </Route>
+      <Route exact path="/user/orders/track">
+        <OrderTracking />
+      </Route>
+      <Route exact path="/admin/orders/pending">
+        <PendingOrders />
+      </Route>
+      <Route exact path="/admin/orders/track">
+        <OrderTracking />
       </Route>
     </Switch>
   );
