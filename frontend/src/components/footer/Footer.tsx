@@ -1,11 +1,8 @@
+import { Link } from "react-router-dom";
 import "./Footer.scss";
 
 export const Footer: React.FunctionComponent = () => (
   <footer>
-    <img
-      className="footer__logo"
-      src="/TechSwitchLogo.svg"
-      alt="TechSwitch logo"
-    />
+    <Link to="/about">About</Link>
   </footer>
 );

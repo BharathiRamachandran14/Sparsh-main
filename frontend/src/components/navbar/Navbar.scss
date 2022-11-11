@@ -3,7 +3,7 @@
 nav.navbar {
   height: 7em;
   background-color: $secondary;
-  color: $text-color-light;
+  color: $text-color;
   padding: 0.5em 0;
   display: flex;
   flex-direction: row;
@@ -69,7 +69,7 @@ nav.navbar {
     justify-content: flex-start;
     gap: 10px;
 
-    .admin-links {
+    .user-admin-links {
       margin-left: auto;
     }
 
