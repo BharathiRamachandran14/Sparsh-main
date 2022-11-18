@@ -1,5 +1,6 @@
+import { getRoles } from "@testing-library/react";
 import React, { createContext, useState } from "react";
-import { checkLogInDetails, User } from "../../clients/apiClient";
+import { logIn, UserResponse, Role } from "../../clients/apiClient";
 
 type LoginContextType = {
   isLoggedIn: boolean;
@@ -31,11 +32,17 @@ export const LoginManager: React.FunctionComponent = ({ children }) => {
     username: string,
     password: string
   ): Promise<boolean> {
-    if (await checkLogInDetails(username, password)) {
+    const logInDetails = await logIn(username, password);
+    const role = logInDetails.role;
+    if (logInDetails) {
       setUsername(username);
       setPassword(password);
       setLoggedIn(true);
-      setAdmin(true);
+      if (logInDetails.role) {
+        setAdmin(true);
+      } else {
+        setAdmin(false);
+      }
       return true;
     } else {
       return false;

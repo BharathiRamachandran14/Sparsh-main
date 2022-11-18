@@ -1,0 +1,40 @@
+@import "../../constants.scss";
+
+.product {
+  margin-top: 100px;
+  margin-right: auto;
+  margin-left: 50px;
+  display: block;
+
+  .product__name {
+    font-size: x-large;
+    text-align: left;
+  }
+
+  .product__image {
+    float: left;
+    width: 60%;
+    height: auto;
+    padding: 30px;
+  }
+
+  .product__price {
+    margin-top: 150px;
+    clear: right;
+    font-size: 30px;
+    padding: 10px;
+  }
+
+  .product__description {
+    font-size: larger;
+    padding: 10px;
+  }
+
+  .product__add-to-wish-list {
+    outline: 30px;
+  }
+
+  .product__add-cart {
+    outline: 60px;
+  }
+}

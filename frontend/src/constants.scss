@@ -1,19 +1,19 @@
 $rosy-brown: #ffc1c1;
-$wheat: #d8d8bf;
-$bisque: #ffe4c4;
 $white-smoke: #f5f5f5;
 $light-coral: #f08080;
 $orchid: #db70db;
 $white: white;
 $black: black;
-$maroon: #8b1c62;
+$light-grey: #d3d3d3;
+$misty-rose: #cdb7b5;
+$purple: rgb(139, 139, 237);
 
 $primary: $orchid; // Used for the background of main elements that needs to be highlighted and the background of buttons
 $primary-light: $white-smoke; // Used for background to text boxes that pops up or need to stand out from white background
 $primary-dark: $light-coral; // Used for sub-headings as a background colour
 $secondary: $rosy-brown; // Used for headings as a background colour
-$secondary-light: #cdb7b5;
+$secondary-light: $misty-rose;
 
 $text-color: $black;
 $text-color-light: $white; // For use on dark backgrounds
-$site-background: #d3d3d3;
+$site-background: $light-grey;

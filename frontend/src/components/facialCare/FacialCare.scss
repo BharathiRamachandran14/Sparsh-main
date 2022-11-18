@@ -1,0 +1,21 @@
+@import "../../constants.scss";
+
+.facial-product-container {
+  margin-top: 75px;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+}
+.product-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 5rem;
+}
+
+.product__link {
+  text-decoration: none;
+}

@@ -15,6 +15,8 @@ import { Cart } from "./components/cart/Cart";
 import { Orders } from "./components/orders/Orders";
 import { OrderTracking } from "./components/orderTracking/OrderTracking";
 import { PendingOrders } from "./components/pendingOrders/PendingOrders";
+import { ProductById } from "./components/allProducts/ProductById";
+import { Contact } from "./components/contact/Contact";
 
 const Routes: React.FunctionComponent = () => {
   return (
@@ -25,16 +27,22 @@ const Routes: React.FunctionComponent = () => {
       <Route exact path="/about">
         <About />
       </Route>
-      <Route exact path="/products/face">
+      <Route exact path="/contact">
+        <Contact />
+      </Route>
+      <Route exact path="/products/:productId">
+        <ProductById />
+      </Route>
+      <Route exact path="/products/type/facial">
         <FacialCare />
       </Route>
-      <Route exact path="/products/hair">
+      <Route exact path="/products/type/hair">
         <HairCare />
       </Route>
-      <Route exact path="/products/body">
+      <Route exact path="/products/type/body">
         <BodyCare />
       </Route>
-      <Route exact path="/products/combos">
+      <Route exact path="/products/type/combos">
         <Combo />
       </Route>
       <Route exact path="/login">

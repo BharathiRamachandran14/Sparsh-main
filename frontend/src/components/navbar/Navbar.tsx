@@ -21,22 +21,18 @@ export const Navbar: React.FunctionComponent = () => {
         <Link to="/" onClick={() => setIsExpanded(false)}>
           Home
         </Link>
-        <Link to="/products/face" onClick={() => setIsExpanded(false)}>
+        <Link to="/products/type/facial" onClick={() => setIsExpanded(false)}>
           Facial Care
         </Link>
-        <Link to="/products/hair" onClick={() => setIsExpanded(false)}>
+        <Link to="/products/type/hair" onClick={() => setIsExpanded(false)}>
           Hair Care
         </Link>
-        <Link to="/products/body" onClick={() => setIsExpanded(false)}>
+        <Link to="/products/type/body" onClick={() => setIsExpanded(false)}>
           Body Care
         </Link>
-        <Link to="/products/combos" onClick={() => setIsExpanded(false)}>
+        {/* <Link to="/products/combos" onClick={() => setIsExpanded(false)}>
           Combos & Gifting
-        </Link>
-        <Link to="/products/face" onClick={() => setIsExpanded(false)}>
-          Facial Care
-        </Link>
-
+        </Link> */}
         <div className="user-admin-links">
           {!loginContext.isLoggedIn ? (
             <Link
