@@ -1,8 +1,8 @@
-# Whale Spotting
+# Sparsh
 
-Welcome to Whale Spotting! Whale Spotting is a React frontend and C# ASP.NET backend application.
+Welcome to Sparsh! Sparsh is a React frontend and C# ASP.NET backend application.
 
-Recently we have finally seen an increase in whale numbers across the globe due to conservation efforts, and we would love to keep the public and scientific community engaged with these efforts. We have been tasked with creating a new website to help encourage and track whale spotting. Inspired by the Washington Whale Museum who have been tracking whale sightings in the Salish Sea but has recently been getting less traffic, we have been hired to create a new website that integrates with their API to grab their current sightings data and expand it to cover the whole world!
+Its an e commerce website that allows us to order soaps.
 
 ## Project setup
 
@@ -24,9 +24,7 @@ See the below instructions for running the database - the first time you run it 
 
 ## Project structure
 
-The project consists of three separate services: the **database**, running inside a Docker container; the **API**, a C# ASP.NET app; and the **frontend**, a React single-page application.
-
-The database runs through `docker-compose` in a Docker container with a persistent storage volume.
+The project consists of three separate services: the **database**; the **API**, a C# ASP.NET app; and the **frontend**, a React single-page application.
 
 The backend is an ASP.NET web API, and exposes a set of API endpoints to be used by the frontent.
 
@@ -47,7 +45,7 @@ First, set the required environment variables for connecting to the database.
 For local running in powershell, run:
 
 ```
-$env:DATABASE_URL = "postgres://username:password@localhost:5432/whale-spotting"
+$env:DATABASE_URL = "postgres://username:password@localhost:5432/Sparsh"
 $env:USE_SSL = "false"
 ```
 
