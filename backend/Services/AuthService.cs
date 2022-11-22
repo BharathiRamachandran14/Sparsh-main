@@ -1,13 +1,15 @@
 using System;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
-using Microsoft.AspNetCore.Mvc;
 using Sparsh.Repositories;
+using Sparsh.Models.Database;
 
 namespace Sparsh.Services
 {
     public interface IAuthService
     {
         bool IsValidLoginInfo(string username, string password);
+        bool IsAdmin(string username);
+        User GetUserByLogin(string username, string password);
     }
     public class AuthService : IAuthService
     {
@@ -39,6 +41,23 @@ namespace Sparsh.Services
             {
                 return false;
             }
+        }
+        public bool IsAdmin(string username)
+        {
+            var foundUser = _users.GetByUsername(username);
+            return (foundUser != null && foundUser.Role == Role.Admin);
+        }
+
+        public User GetUserByLogin(string username,
+                                   string password)
+        {
+            var check = IsValidLoginInfo(username, password);
+            if(!check)
+            {
+               throw new ArgumentException("Username and password combination not valid.");
+            }
+            User user = _users.GetByUsername(username);
+            return user;
         }
     }
 }

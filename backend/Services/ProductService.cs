@@ -8,7 +8,8 @@ namespace Sparsh.Services
     {
         IEnumerable<Product> GetAllProducts();
         IEnumerable<Product> GetProductsByType(ProductType type);
-        // Product GetProductById(int productId);
+        Product GetProductById(int productId);
+        Product GetProductByName(string productName);
         Product AddNewProduct(CreateProductRequest request);        
     }
     public class ProductService : IProductService
@@ -30,10 +31,15 @@ namespace Sparsh.Services
             return _products.GetProductsByType(type);
         }
 
-        // public Product GetProductById(int productId)
-        // {
-        //     return _products.GetProductById(productId);
-        // }
+        public Product GetProductById(int productId)
+        {
+            return _products.GetProductById(productId);
+        }
+
+        public Product GetProductByName(string productName)
+        {
+            return _products.GetProductByName(productName);
+        }
 
         public Product AddNewProduct(CreateProductRequest request)
         {

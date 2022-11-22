@@ -25,25 +25,46 @@ namespace Sparsh.Controllers
         }
 
         [HttpGet("")]
-        public ActionResult<ListResponse<Product>> GetAllSpecies()
+        public ActionResult<ListResponse<Product>> GetAllProducts()
         {
             var products = _products.GetAllProducts();
             return new ListResponse<Product>(products);
         } 
 
-        [HttpGet("{productType}")]
+        [HttpGet("type/{productType}")]
         public ActionResult<ListResponse<Product>> GetProductsByType([FromRoute] ProductType productType)
         {
             var products = _products.GetProductsByType(productType);
             return new ListResponse<Product>(products);
         }
 
-        // [HttpGet("{productId}")]
-        // public ActionResult<ListResponse<Product>> GetProductById([FromRoute] int productId)
-        // {
-        //     var product = _products.GetProductById(productId);
-        //     return product;
-        // }
+        [HttpGet("{productId}")]
+        public ActionResult<Product> GetProductById([FromRoute] int productId)
+        {
+            try
+            {
+                var product = _products.GetProductById(productId);
+                return product;
+            }
+            catch(InvalidOperationException)
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpGet("name/{productName}")]
+        public ActionResult<Product> GetProductByName([FromRoute] string productName)
+        {
+             try
+            {
+                var product = _products.GetProductByName(productName);
+                return product;
+            }
+            catch(InvalidOperationException)
+            {
+                return NotFound();
+            }
+        }
 
         [HttpPost]
         public IActionResult AddProduct([FromHeader] string authorization,
