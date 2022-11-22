@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using Sparsh.Services;
 using Sparsh.Helpers;
+using Sparsh.Models.Database;
+using Sparsh.Models.Response;
 
 namespace Sparsh.Controllers {
     [ApiController]
@@ -21,7 +23,10 @@ namespace Sparsh.Controllers {
         }
 
         [HttpGet]
-        public ActionResult Login([FromHeader(Name = "Authorization")] string authHeader) {
+        public ActionResult<UserResponse> Login([FromHeader(Name = "Authorization")] string authHeader) {
+
+            User user;
+            
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -35,21 +40,14 @@ namespace Sparsh.Controllers {
             try
             {
                 (string username, string password) = AuthHelper.GetUsernameAndPassword(authHeader);
-
-                var check = _authService.IsValidLoginInfo(username, password);
-                if (!check)
-                {
-                    return new UnauthorizedResult();
-                }
-                else
-                {
-                    return Ok();
-                }
+                user =  _authService.GetUserByLogin(username, password);
             }
-            catch (Exception)
+            catch (ArgumentException)
             {
-                return new UnauthorizedResult();
+                return Unauthorized("Username and Password combination not valid!!");
             }
+
+            return new UserResponse(user);
         }
     }
 }

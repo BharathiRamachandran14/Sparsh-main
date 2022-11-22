@@ -10,7 +10,8 @@ namespace Sparsh.Repositories
         IEnumerable<Product> GetAllProducts();
         IEnumerable<Product> GetProductsByType(ProductType type);
         Product AddNewProduct(Product newProduct);
-        // Product GetProductById(int productId);
+        Product GetProductById(int productId);
+        Product GetProductByName(string productName);
     }
     public class ProductRepo : IProductRepo
     {
@@ -26,7 +27,6 @@ namespace Sparsh.Repositories
         public IEnumerable<Product> GetAllProducts()
         {
             return _context.Product
-                .Include(p => p.ProductType)
                 .OrderBy(p => p.ProductType);
         }
 
@@ -36,11 +36,17 @@ namespace Sparsh.Repositories
                 .Where(p => p.ProductType == type);
         }
 
-        // public Product GetProductById(int productId)
-        // {
-        //     return _context.Product
-        //         .Where(p => p.ProductId == productId);
-        // }
+        public Product GetProductById(int productId)
+        {
+            return _context.Product
+                .Single(p => p.ProductId == productId);
+        }
+
+        public Product GetProductByName(string productName)
+        {
+            return _context.Product
+                .Single(p => p.ProductName == productName);
+        }
 
         public Product AddNewProduct(Product newProduct)
         {

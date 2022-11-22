@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Sparsh;
@@ -11,9 +12,10 @@ using Sparsh;
 namespace Sparsh.Migrations
 {
     [DbContext(typeof(SparshDbContext))]
-    partial class SparshDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221111121624_userUpdate")]
+    partial class userUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -201,14 +203,9 @@ namespace Sparsh.Migrations
                     b.Property<int?>("ItemProductId")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("UserId")
-                        .HasColumnType("integer");
-
                     b.HasKey("WishListId");
 
                     b.HasIndex("ItemProductId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Wishlist");
                 });
@@ -258,13 +255,7 @@ namespace Sparsh.Migrations
                         .WithMany()
                         .HasForeignKey("ItemProductId");
 
-                    b.HasOne("Sparsh.Models.Database.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
                     b.Navigation("Item");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Sparsh.Models.Database.Storehouse", b =>

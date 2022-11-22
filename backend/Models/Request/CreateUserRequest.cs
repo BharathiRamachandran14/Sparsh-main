@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Sparsh.Models.Database;
 
 namespace Sparsh.Models.Request
 {
@@ -11,6 +12,15 @@ namespace Sparsh.Models.Request
         [Required]
         [StringLength(70)]
         public string Username { get; set; }
+
+        [Required]
+        public Role Role { get; set; }
+
+         [Required]
+        [RegularExpression(
+            @"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+        )]
+        public string Password { get; set; }
         
         [Required]
         [RegularExpression(
@@ -21,9 +31,13 @@ namespace Sparsh.Models.Request
         public string Email { get; set; }
 
         [Required]
-        [RegularExpression(
-            @"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
-        )]
-        public string Password { get; set; }
+        [RegularExpression("^\\+?\\d{1,4}?[-.\\s]?\\(?\\d{1,3}?\\)?[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,9}$")]
+        public string  PhoneNumber{ get; set; }
+
+        [Required]
+        [StringLength(200)]
+        public string  Address{ get; set; }
+
+
     }
 }
