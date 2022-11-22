@@ -31,21 +31,24 @@ export const ProductById: React.FunctionComponent = () => {
         src={product.productImageUrl}
         alt={product.productName}
       />
+
       <div className="product__price">£{product.pricePerProduct} per piece</div>
       <div className="product__description">{product.productDescription}</div>
-      <button
-        className="product__add-to-wish-list"
-        onClick={() => setWishState((current) => !current)}
-      >
-        {wishState === false ? (
-          <AiOutlineHeart size={30} />
-        ) : (
-          <AiFillHeart size={30} />
-        )}
-      </button>
-      <button className="product__add-cart">
-        <AiOutlineShoppingCart size={30} />
-      </button>
+      <div className="fieldset">
+        <button
+          className="product__add-to-wish-list"
+          onClick={() => setWishState((current) => !current)}
+        >
+          {wishState === false ? (
+            <AiOutlineHeart size={30} />
+          ) : (
+            <AiFillHeart size={30} />
+          )}
+        </button>
+        <button className="product__add-cart">
+          <AiOutlineShoppingCart size={30} />
+        </button>
+      </div>
     </div>
   );
 };

@@ -44,14 +44,16 @@ export const Navbar: React.FunctionComponent = () => {
             </Link>
           ) : (
             <div className="logged-in-links">
-              <button
-                onClick={() => {
-                  setIsExpanded(false);
-                  loginContext.logOut();
-                }}
-              >
-                Log Out
-              </button>
+              <div>
+                <button
+                  onClick={() => {
+                    setIsExpanded(false);
+                    loginContext.logOut();
+                  }}
+                >
+                  Log Out
+                </button>
+              </div>
             </div>
           )}
         </div>
