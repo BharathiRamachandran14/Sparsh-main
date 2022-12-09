@@ -79,7 +79,9 @@ namespace Sparsh.Controllers
                 (string username, string password) = AuthHelper.GetUsernameAndPassword(authorization);
 
                 var check = _authService.IsValidLoginInfo(username, password);
-                if (!check)
+                var adminCheck = _authService.IsAdmin(username);
+                
+                if (!check || !adminCheck)
                 {
                     return Unauthorized();
                 }

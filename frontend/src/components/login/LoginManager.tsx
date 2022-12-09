@@ -7,6 +7,7 @@ type LoginContextType = {
   isAdmin: boolean;
   username: string;
   password: string;
+  userId: number;
   logIn: (username: string, password: string) => Promise<boolean>;
   logOut: () => void;
 };
@@ -16,6 +17,7 @@ export const LoginContext = createContext<LoginContextType>({
   isAdmin: false,
   username: "",
   password: "",
+  userId: 0,
   logIn: async () => false,
   logOut: () => {
     console.log();
@@ -26,6 +28,7 @@ export const LoginManager: React.FunctionComponent = ({ children }) => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [contextusername, setUsername] = useState("");
   const [contextPassword, setPassword] = useState("");
+  const [contextUserId, setUserId] = useState(0);
   const [Admin, setAdmin] = useState(false);
 
   async function tryLogIn(
@@ -37,8 +40,9 @@ export const LoginManager: React.FunctionComponent = ({ children }) => {
     if (logInDetails) {
       setUsername(username);
       setPassword(password);
+      setUserId(logInDetails.id);
       setLoggedIn(true);
-      if (logInDetails.role) {
+      if (role === "admin") {
         setAdmin(true);
       } else {
         setAdmin(false);
@@ -53,6 +57,7 @@ export const LoginManager: React.FunctionComponent = ({ children }) => {
     setLoggedIn(false);
     setUsername("");
     setPassword("");
+    setUserId(0);
     setAdmin(false);
   }
 
@@ -61,6 +66,7 @@ export const LoginManager: React.FunctionComponent = ({ children }) => {
     isAdmin: Admin,
     username: contextusername,
     password: contextPassword,
+    userId: contextUserId,
     logIn: tryLogIn,
     logOut: logOut,
   };

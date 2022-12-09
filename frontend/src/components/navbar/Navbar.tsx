@@ -42,8 +42,39 @@ export const Navbar: React.FunctionComponent = () => {
             >
               <RiUserFill size={25} />
             </Link>
+          ) : !loginContext.isAdmin ? (
+            <div className="logged-in-links">
+              <Link to="/wishList" onClick={() => setIsExpanded(false)}>
+                Wish List
+              </Link>
+              {/* <Link to="/users/create" onClick={() => setIsExpanded(false)}>
+                User +
+              </Link> */}
+              <Link to="/user/cart" onClick={() => setIsExpanded(false)}>
+                Cart
+              </Link>
+              <Link to="/user/orders" onClick={() => setIsExpanded(false)}>
+                Orders
+              </Link>
+              <div>
+                <button
+                  onClick={() => {
+                    setIsExpanded(false);
+                    loginContext.logOut();
+                  }}
+                >
+                  Log Out
+                </button>
+              </div>
+            </div>
           ) : (
             <div className="logged-in-links">
+              <Link
+                to="/admin/orders/pending"
+                onClick={() => setIsExpanded(false)}
+              >
+                Pending Orders
+              </Link>
               <div>
                 <button
                   onClick={() => {

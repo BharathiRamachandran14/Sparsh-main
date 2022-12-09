@@ -58,10 +58,12 @@ namespace Sparsh
 
       services.AddTransient<IUserRepo, UserRepo>();
       services.AddTransient<IProductRepo, ProductRepo>();
+      services.AddTransient<IWishListRepo, WishListRepo>();
    
       services.AddTransient<IAuthService, AuthService>();
       services.AddTransient<IUserService, UserService>();
       services.AddTransient<IProductService, ProductService>();
+      services.AddTransient<IWishListService, WishListService>();
     }
 
     // This method gets called by the runtime. Use this method to configure the

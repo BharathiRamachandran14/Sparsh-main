@@ -1,16 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProductById, Product } from "../../clients/apiClient";
+import {
+  getProductById,
+  Product,
+  addToWishList,
+  deleteFromWishList,
+} from "../../clients/apiClient";
 import "./ProductById.scss";
 import {
   AiFillHeart,
   AiOutlineHeart,
   AiOutlineShoppingCart,
 } from "react-icons/ai";
+import { LoginContext } from "../login/LoginManager";
+import { Wishlist } from "../wishlist/Wishlist";
 
 export const ProductById: React.FunctionComponent = () => {
+  const loginContext = useContext(LoginContext);
   const [product, setProduct] = useState<Product>();
   const { productId } = useParams<{ productId: string }>();
+  const { wishListId } = useParams<{ wishListId: string }>();
   const [wishState, setWishState] = useState(false);
   useEffect(() => {
     getProductById(productId).then(setProduct);
@@ -19,6 +28,29 @@ export const ProductById: React.FunctionComponent = () => {
   if (product === undefined) {
     return <p>Loading...</p>;
   }
+
+  const addOrDeleteWishListOnClick = () => {
+    setWishState((current) => !current);
+    if (wishState == true) {
+      addToWishList(
+        {
+          productId: parseInt(productId),
+          userId: loginContext.userId,
+        },
+        loginContext.username,
+        loginContext.password
+      );
+    } // else {
+    //   deleteFromWishList(
+    //     {
+    //       productId: parseInt(productId),
+    //       userId: loginContext.userId,
+    //     },
+    //     loginContext.username,
+    //     loginContext.password
+    //   );
+    // }
+  };
 
   return (
     <div className="product">
@@ -37,7 +69,7 @@ export const ProductById: React.FunctionComponent = () => {
       <div className="fieldset">
         <button
           className="product__add-to-wish-list"
-          onClick={() => setWishState((current) => !current)}
+          onClick={addOrDeleteWishListOnClick}
         >
           {wishState === false ? (
             <AiOutlineHeart size={30} />
@@ -46,7 +78,7 @@ export const ProductById: React.FunctionComponent = () => {
           )}
         </button>
         <button className="product__add-cart">
-          <AiOutlineShoppingCart size={30} />
+          Add to cart <AiOutlineShoppingCart size={30} />
         </button>
       </div>
     </div>

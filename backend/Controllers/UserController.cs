@@ -53,13 +53,12 @@ namespace Sparsh.Controllers
             try
             {
                 User createdUser = _userService.Create(newUserRequest);
+                return new UserResponse(createdUser);
             }
             catch (DuplicateUsernameException)
             {
                 return BadRequest("Username already exists");
             }
-
-            return new UserResponse(newUserRequest);
         }
     }
 }

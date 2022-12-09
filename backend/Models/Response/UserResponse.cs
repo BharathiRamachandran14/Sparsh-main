@@ -6,6 +6,7 @@ namespace Sparsh.Models.Response
 {
     public class UserResponse
     {
+        public int Id { get; set; }
         [Required]
         [StringLength(70)]
         public string Name { get; set; }
@@ -30,18 +31,19 @@ namespace Sparsh.Models.Response
         [StringLength(200)]
         public string  Address{ get; set; }
 
-        public UserResponse(CreateUserRequest newUserRequest)
-        {
-            this.Name = newUserRequest.Name;
-            this.Username = newUserRequest.Username;
-            this.Role = newUserRequest.Role;
-            this.Email = newUserRequest.Email;
-            this.PhoneNumber = newUserRequest.PhoneNumber;
-            this.Address = newUserRequest.Address;     
-        }
+        // public UserResponse(CreateUserRequest newUserRequest)
+        // {
+        //     this.Name = newUserRequest.Name;
+        //     this.Username = newUserRequest.Username;
+        //     this.Role = newUserRequest.Role;
+        //     this.Email = newUserRequest.Email;
+        //     this.PhoneNumber = newUserRequest.PhoneNumber;
+        //     this.Address = newUserRequest.Address;     
+        // }
 
         public UserResponse(User newUser)
         {
+            this.Id = newUser.UserId;
             this.Name = newUser.Name;
             this.Username = newUser.Username;
             this.Role = newUser.Role;
