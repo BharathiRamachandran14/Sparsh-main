@@ -17,7 +17,11 @@ export const Wishlist: React.FunctionComponent = () => {
   };
 
   useEffect(() => {
-    getWIshListForUser(loginContext.userId).then(setWishLists);
+    getWIshListForUser(
+      loginContext.userId,
+      loginContext.username,
+      loginContext.password
+    ).then(setWishLists);
   }, [loginContext.userId]);
 
   if (wishLists === undefined) {

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Sparsh;
@@ -11,9 +12,10 @@ using Sparsh;
 namespace Sparsh.Migrations
 {
     [DbContext(typeof(SparshDbContext))]
-    partial class SparshDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221219141845_CartItemAdded")]
+    partial class CartItemAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -59,11 +61,11 @@ namespace Sparsh.Migrations
                     b.Property<int?>("CartId")
                         .HasColumnType("integer");
 
+                    b.Property<long>("CartQuantity")
+                        .HasColumnType("bigint");
+
                     b.Property<int?>("ItemProductId")
                         .HasColumnType("integer");
-
-                    b.Property<long>("Quantity")
-                        .HasColumnType("bigint");
 
                     b.Property<double>("TotalPrice")
                         .HasColumnType("double precision");

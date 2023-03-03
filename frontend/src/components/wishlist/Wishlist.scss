@@ -1,0 +1,17 @@
+@import "../../constants.scss";
+
+.wishList-container {
+  margin-top: 75px;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+}
+.wishList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 5rem;
+}

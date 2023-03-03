@@ -10,6 +10,7 @@ namespace Sparsh
         public DbSet<User> Users { get; set; }
         public DbSet<Cart> Cart { get; set; }
         public DbSet<Product> Product { get; set; }
+        public DbSet<CartItem> CartItem { get; set; }
         public DbSet<Stock> Stock { get; set; }
         public DbSet<Storehouse> Storehouse { get; set; }
         public DbSet<Transaction> Transaction { get; set; }

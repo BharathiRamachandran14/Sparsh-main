@@ -17,6 +17,7 @@ import { OrderTracking } from "./components/orderTracking/OrderTracking";
 import { PendingOrders } from "./components/pendingOrders/PendingOrders";
 import { ProductById } from "./components/allProducts/ProductById";
 import { Contact } from "./components/contact/Contact";
+import { WarningPage } from "./components/warningPage/WarningPage";
 
 const Routes: React.FunctionComponent = () => {
   return (
@@ -47,6 +48,9 @@ const Routes: React.FunctionComponent = () => {
       </Route>
       <Route exact path="/login">
         <Login />
+      </Route>
+      <Route exact path="/warning">
+        <WarningPage />
       </Route>
       <Route exact path="/wishList">
         <Wishlist />

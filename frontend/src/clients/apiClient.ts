@@ -177,10 +177,16 @@ export const deleteFromWishList = async (
 };
 
 export const getWIshListForUser = async (
-  userId: number
+  userId: number,
+  username: string,
+  password: string
 ): Promise<WishList[]> => {
   const wishList: WishList[] = [];
-  const response = await fetch(`${backendUrl}/wishlist/${userId}`);
+  const response = await fetch(`${backendUrl}/wishlist/${userId}`, {
+    headers: {
+      Authorization: `Basic ${btoa(`${username}:${password}`)}`,
+    },
+  });
   const userWishListResponse: ListResponse<WishListResponse> =
     await response.json();
   if (userWishListResponse.items !== undefined) {

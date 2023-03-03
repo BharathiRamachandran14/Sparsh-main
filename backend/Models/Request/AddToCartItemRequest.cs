@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace Sparsh.Models.Database
 {
-    public class AddToCartRequest
+    public class AddToCartItemRequest
     {
          [Required]
-        public User User { get; set; }
+        public int UserId { get; set; }
 
         [Required]
-        public List<Stock> Products { get; set; }
+        public int ProductId { get; set; }
     }
 }

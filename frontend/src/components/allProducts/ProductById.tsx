@@ -4,23 +4,21 @@ import {
   getProductById,
   Product,
   addToWishList,
-  deleteFromWishList,
 } from "../../clients/apiClient";
 import "./ProductById.scss";
-import {
-  AiFillHeart,
-  AiOutlineHeart,
-  AiOutlineShoppingCart,
-} from "react-icons/ai";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { BsCart, BsFillCartCheckFill } from "react-icons/bs";
 import { LoginContext } from "../login/LoginManager";
-import { Wishlist } from "../wishlist/Wishlist";
+import { WarningPage } from "../warningPage/WarningPage";
 
 export const ProductById: React.FunctionComponent = () => {
   const loginContext = useContext(LoginContext);
   const [product, setProduct] = useState<Product>();
   const { productId } = useParams<{ productId: string }>();
-  const { wishListId } = useParams<{ wishListId: string }>();
   const [wishState, setWishState] = useState(false);
+  const [inCart, setInCart] = useState(false);
+  const [loginState, setLoginState] = useState(loginContext.isLoggedIn);
+
   useEffect(() => {
     getProductById(productId).then(setProduct);
   }, [productId]);
@@ -29,27 +27,20 @@ export const ProductById: React.FunctionComponent = () => {
     return <p>Loading...</p>;
   }
 
-  const addOrDeleteWishListOnClick = () => {
-    setWishState((current) => !current);
-    if (wishState == true) {
-      addToWishList(
-        {
-          productId: parseInt(productId),
-          userId: loginContext.userId,
-        },
-        loginContext.username,
-        loginContext.password
-      );
-    } // else {
-    //   deleteFromWishList(
-    //     {
-    //       productId: parseInt(productId),
-    //       userId: loginContext.userId,
-    //     },
-    //     loginContext.username,
-    //     loginContext.password
-    //   );
+  const addToWishListOnClick = () => {
+    // if (loginState === false) {
+    //   return <WarningPage />;
     // }
+
+    setWishState(true);
+    addToWishList(
+      {
+        productId: parseInt(productId),
+        userId: loginContext.userId,
+      },
+      loginContext.username,
+      loginContext.password
+    );
   };
 
   return (
@@ -69,7 +60,7 @@ export const ProductById: React.FunctionComponent = () => {
       <div className="fieldset">
         <button
           className="product__add-to-wish-list"
-          onClick={addOrDeleteWishListOnClick}
+          onClick={addToWishListOnClick}
         >
           {wishState === false ? (
             <AiOutlineHeart size={30} />
@@ -77,8 +68,12 @@ export const ProductById: React.FunctionComponent = () => {
             <AiFillHeart size={30} />
           )}
         </button>
-        <button className="product__add-cart">
-          Add to cart <AiOutlineShoppingCart size={30} />
+        <button className="product__add-cart" onClick={() => setInCart(true)}>
+          {inCart === false ? (
+            <BsCart size={30} />
+          ) : (
+            <BsFillCartCheckFill size={30} />
+          )}
         </button>
       </div>
     </div>

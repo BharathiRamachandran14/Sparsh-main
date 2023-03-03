@@ -47,39 +47,39 @@ namespace Sparsh.Controllers
             }
         }
 
-        [HttpPost]
-        public IActionResult AddToCart([FromHeader] string authorization,
-                                       [FromBody] AddToCartRequest newAddToCartRequest)
-        {
-             if (authorization is null)
-            {
-                return new UnauthorizedResult();
-            }
-            try
-            {
-                (string username, string password) = AuthHelper.GetUsernameAndPassword(authorization);
+    //     [HttpPost]
+    //     public IActionResult AddToCart([FromHeader] string authorization,
+    //                                    [FromBody] AddToCartItemRequest newAddToCartRequest)
+    //     {
+    //          if (authorization is null)
+    //         {
+    //             return new UnauthorizedResult();
+    //         }
+    //         try
+    //         {
+    //             (string username, string password) = AuthHelper.GetUsernameAndPassword(authorization);
 
-                var check = _authService.IsValidLoginInfo(username, password);
+    //             var check = _authService.IsValidLoginInfo(username, password);
                              
-                if (!check)
-                {
-                    return Unauthorized();
-                }
-                var newCart = _cart.AddToCart(newAddToCartRequest);
-                return Created("/api", newCart);
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-                return BadRequest();
-            }
-            catch (ArgumentException)
-            {
-                return BadRequest();
-            }
-            catch (InvalidOperationException)
-            {
-                return NotFound();
-            }
-        }
-    }
+    //             if (!check)
+    //             {
+    //                 return Unauthorized();
+    //             }
+    //             var newCart = _cart.AddToCart(newAddToCartRequest);
+    //             return Created("/api", newCart);
+    //         }
+    //         catch (ArgumentOutOfRangeException)
+    //         {
+    //             return BadRequest();
+    //         }
+    //         catch (ArgumentException)
+    //         {
+    //             return BadRequest();
+    //         }
+    //         catch (InvalidOperationException)
+    //         {
+    //             return NotFound();
+    //         }
+    //     }
+     }
 }

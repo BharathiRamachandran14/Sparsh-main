@@ -33,6 +33,10 @@
   button {
     border: transparent;
     background-color: transparent;
+    pointer-events: auto;
+    // .login-check true {
+    //   display: none;
+    // }
   }
 }
 
