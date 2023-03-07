@@ -36,7 +36,7 @@ To run the project locally, we need to start all three services separately (pref
 
 ### Running the database
 
-Ensure you have PostgreSQL installed and running. Open up [pgAdmin](https://www.pgadmin.org/), and create a new login-enabled role with the name and password of your choice (that you will remember). Create a database whose owner is that new role, probably called `whale-spotting` or similar. Then, edit the file `database.env` to contain the information you just created!
+Ensure you have PostgreSQL installed and running. Open up [pgAdmin](https://www.pgadmin.org/), and create a new login-enabled role with the name and password of your choice (that you will remember). Create a database whose owner is that new role, probably called `sparsh` or similar. Then, edit the file `database.env` to contain the information you just created!
 
 ### Running the backend
 
